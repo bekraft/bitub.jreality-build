@@ -1,6 +1,8 @@
 # jReality Eclipse Update site integration
 
-This project aims to provide a maven / tychp controlled build process for P2 update sites. 
+This project aims to provide a Maven / Tycho controlled build process for P2 update sites. It provides
+no new packages. It only restructures the jReality packages in order to match the expectationa of the P2
+installation / provisioning process of Eclipse.
 
 ## Build process
 ### Clone jReality
@@ -22,20 +24,96 @@ set to 1.1.0. We can append a short head commit ID as build number to identify t
 ```
 	cd $JREALITY_SOURCE
 	NEW_VERSION_SNAPSHOT=1.1.0.`git rev-parse --short HEAD`
+	cd <back to build root>
 	mvn -Dtycho.mode=maven org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=$NEW_VERSION_SNAPSHOT
 ```
 
 ### Build OSGI compliant bundles and bundle cache
 
+First run clean install with the predefined profile "build-osgi". It will build the OSGI bundles
+and store them into a temporary cache which will serve as a simple unstructured P2 repository.
+
 ```
-	mvn -Djreality.checkoutpath=$JREALITY_SOURCE clean install
+	mvn -P build-osgi -Djreality.checkoutpath=$JREALITY_SOURCE clean install
 ```
 
-Don't clean build before since it will clean the OSGI bundle cache, too.
+Actually, it is possible to install the bundles from repository cache. But there are 
+no declared dependencies between these bundles at installation time. This task is done by the next
+build step. 
 
 ### Build Eclipse P2 integration
 
+First define the location of the public update site within the local system. Afterwards, run
+install without clean. Choose the proper profile (here "platform-luna") for your Eclipse platform.
+The profile "build-p2" will add the remote and local repositories as well as the additional features.
+
 ```
-	mvn -P platform-luna,build-p2 clean install
+    USITE=<absolute path to public update site>
+	mvn -P platform-luna,build-p2 -Djreality.updatesiteLocal=$USITE install
 ```
 
+By default, the local update site is placed into the the current user's profile at "./.p2/jreality".
+
+### Installing in Eclipse
+
+Add a new update site location (either local or remote) in Eclipse via Help/Install new software. 
+To use jReality as a simple view, have a look to the example feature.
+
+## Packaging of jReality 
+
+To allow a working dependency configuration, jReality has been repackaged into four different
+installable units for Eclipse (features).
+
+Since some of the dependencies are not available as Maven artifacts, all dependencies are taken
+from original jReality clone (lib folder). The 3rd-party libraries are inlined into a new OSGI compliant
+bundle. 
+
+### Core feature
+
+The Core installable unit (feature for Eclipse) contains following bundles:
+
+ - Core bundle (from original targets see below)
+ - Core 3rd-party dependencies
+ - Native libraries as fragments
+   - Windows with specification win32_64
+   - Linux with specification x86_64 (amd64)
+   - (MacOS 64 in work)
+   
+The Core covers the original targets of 
+ - core, proxies, tools, audio, soft, jogl, jogl3, gpgpu, renderman, backends-share
+ 
+### Core 3rd-party dependencies
+
+Original libraries from jReality:
+
+ - jacknativeclient.jar (not via Maven)
+ - libpd.jar (not via Maven)
+ - NetUtil.jar 
+ - hidapi-1.1.jar
+ - jinput.jar 
+ - smrj.jar
+ - gluegen-rt.jar 
+ - jogl-all.jar 
+  
+### IO feature
+
+The IO feature includes Core; contains following additional bundles:
+
+ - IO bundle
+ - IO 3d-party dependencies
+ 
+The IO unit covers the original targets of 
+ - io
+ 
+### IO 3rd-party dependencies
+
+Original libraries from jReality:
+
+ - antlr-3.4-complete.jar 
+ - xstream-1.4.7.jar 
+ - xpp3_min-1.1.4c.jar 
+ - xmlpull-1.1.3.1.jar 
+ - itextpdf- 5.3.2.jar
+ 
+ 
+### Swing feature

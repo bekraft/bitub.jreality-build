@@ -110,10 +110,9 @@
 		<module>de.bitub.jreality.core.thirdparty.bundle</module>
 		<module>de.bitub.jreality.natives.win32_64.bundle</module>
 		<module>de.bitub.jreality.natives.linux64.bundle</module>
-		
-<!--
 		<module>de.bitub.jreality.io.bundle</module>
 		<module>de.bitub.jreality.io.thirdparty.bundle</module>
+<!--
 		<module>de.bitub.jreality.swing.ui.bundle</module>
 		<module>de.bitub.jreality.swing.plugin.bundle</module>
 		<module>de.bitub.jreality.swing.plugin.thirdparty.bundle</module>

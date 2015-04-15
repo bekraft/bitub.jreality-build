@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
 		<groupId>de.bitub.jreality</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.1.0</version>
+		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>de.jreality.core.bundle</artifactId>
-	<name>jReality Core OSGI bundle</name>
+	<artifactId>de.jreality.io.bundle</artifactId>
+	<name>jReality IO OSGI bundle</name>
+	<version>1.0.0</version>
 	<packaging>bundle</packaging>
 
 	<build>
@@ -24,7 +22,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.9.1</version>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
@@ -33,21 +30,10 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>${jreality.checkoutpath}/src-core</source>
-								<source>${jreality.checkoutpath}/src-backends-share</source>
-								<source>${jreality.checkoutpath}/src-audio</source>
-								<source>${jreality.checkoutpath}/src-jogl</source>
-								<source>${jreality.checkoutpath}/src-jogl3</source>
-								<source>${jreality.checkoutpath}/src-proxies</source>
-								<source>${jreality.checkoutpath}/src-soft</source>
-								<source>${jreality.checkoutpath}/src-soft-new</source>
-								<source>${jreality.checkoutpath}/src-tool</source>
-								<!-- <source>${jreality.checkoutpath}/src-examples</source> -->
-								<source>${jreality.checkoutpath}/src-gpgpu</source>
-								<source>${jreality.checkoutpath}/src-renderman</source>					
+								<source>${jreality.checkoutpath}/src-io</source>
+								<source>${jreality.checkoutpath}/src-sunflow</source>
+								
 							</sources>
-
-
 						</configuration>
 					</execution>
 				</executions>
@@ -61,7 +47,7 @@
 
 				<configuration>
 					<instructions>
-						<Export-Package>de.jreality.*</Export-Package>
+						<Export-Package>de.*</Export-Package>
 						<Import-Package>!*</Import-Package>
 						<Embed-Dependency>!*;scope=system;inline=true</Embed-Dependency>
 						<Bundle-Name>${project.name}</Bundle-Name>
@@ -69,7 +55,7 @@
 						<Bundle-Version>${project.version}</Bundle-Version>
 						<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 						<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
-						<Require-Bundle>de.jreality.core.thirdparty.bundle;bundle-version="${project.version}"</Require-Bundle>
+						<Require-Bundle>de.jreality.core.bundle;visibility:=reexport;bundle-version="${project.version}",de.jreality.core.thirdparty.bundle;bundle-version="${project.version}",de.jreality.io.thirdparty.bundle;bundle-version="${project.version}"</Require-Bundle>
 					</instructions>
 				</configuration>
 
@@ -108,15 +94,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.2</version>
 				<configuration>
-					<fork>true</fork>
-					<source>1.8</source>
-					<target>1.8</target>
-					<!-- <executable>C:\Program Files\Java\jdk1.8.0_31\bin</executable> -->
 					<excludes>
-						<exclude> **/csound/**</exclude>
-						<exclude>**/DeviceSpacenav.java</exclude>
-						<exclude>**/WiiMoteOSC.java</exclude>
-						<exclude>**/OSCPool.java</exclude>
+						<exclude> **/u3d/TestScene.java</exclude>
+						<exclude>**/blender/test/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
@@ -124,15 +104,31 @@
 		</plugins>
 	</build>
 
+
 	<dependencies>
 
 		<dependency>
-			<groupId>de.bitub.jreality</groupId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>de.jreality.core.bundle</artifactId>
+			<version>${project.version}</version>
+			<type>bundle</type>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>de.jreality.core.thirdparty.bundle</artifactId>
-			<version>1.1.0</version>
+			<version>${project.version}</version>
+			<type>bundle</type>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>de.jreality.io.thirdparty.bundle</artifactId>
+			<version>${project.version}</version>
 			<type>bundle</type>
 		</dependency>
 
 	</dependencies>
 
+	
 </project>
