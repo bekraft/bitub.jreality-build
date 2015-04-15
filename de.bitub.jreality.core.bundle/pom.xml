@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.bitub.jreality</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.1.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>de.jreality.core.bundle</artifactId>
+	<name>jReality Core OSGI bundle</name>
+	<packaging>bundle</packaging>
+
+	<build>
+
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${jreality.checkoutpath}/src-core</source>
+								<source>${jreality.checkoutpath}/src-backends-share</source>
+								<source>${jreality.checkoutpath}/src-audio</source>
+								<source>${jreality.checkoutpath}/src-jogl</source>
+								<source>${jreality.checkoutpath}/src-jogl3</source>
+								<source>${jreality.checkoutpath}/src-proxies</source>
+								<source>${jreality.checkoutpath}/src-soft</source>
+								<source>${jreality.checkoutpath}/src-soft-new</source>
+								<source>${jreality.checkoutpath}/src-tool</source>
+								<!-- <source>${jreality.checkoutpath}/src-examples</source> -->
+								<source>${jreality.checkoutpath}/src-gpgpu</source>
+								<source>${jreality.checkoutpath}/src-renderman</source>					
+							</sources>
+
+
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>1.4.0</version>
+				<extensions>true</extensions>
+
+				<configuration>
+					<instructions>
+						<Export-Package>de.jreality.*</Export-Package>
+						<Import-Package>!*</Import-Package>
+						<Embed-Dependency>!*;scope=system;inline=true</Embed-Dependency>
+						<Bundle-Name>${project.name}</Bundle-Name>
+						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
+						<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
+						<Require-Bundle>de.jreality.core.thirdparty.bundle</Require-Bundle>
+					</instructions>
+				</configuration>
+
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+							<Bundle-Name>${project.name} source</Bundle-Name>
+							<Bundle-SymbolicName>${project.artifactId}.source</Bundle-SymbolicName>
+							<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
+							<Bundle-Version>${project.version}</Bundle-Version>
+							<Bundle-Localization>plugin</Bundle-Localization>
+							<Eclipse-SourceBundle>${project.artifactId};version="${project.version}";roots:="."</Eclipse-SourceBundle>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<fork>true</fork>
+					<source>1.8</source>
+					<target>1.8</target>
+					<!-- <executable>C:\Program Files\Java\jdk1.8.0_31\bin</executable> -->
+					<excludes>
+						<exclude> **/csound/**</exclude>
+						<exclude>**/DeviceSpacenav.java</exclude>
+						<exclude>**/WiiMoteOSC.java</exclude>
+						<exclude>**/OSCPool.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>de.bitub.jreality</groupId>
+			<artifactId>de.jreality.core.thirdparty.bundle</artifactId>
+			<version>1.1.0</version>
+			<type>bundle</type>
+		</dependency>
+
+	</dependencies>
+
+</project>

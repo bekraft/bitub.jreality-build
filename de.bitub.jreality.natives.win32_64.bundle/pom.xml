@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.bitub.jreality</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.1.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>de.jreality.natives.win32_64.bundle</artifactId>
+	<version>1.1.0</version>
+	<packaging>bundle</packaging>
+	<name>jReality Natives OSGI Windows-64 libraries bundle</name>
+	
+	<properties>
+
+		<libs.path>${jreality.checkoutpath}</libs.path>
+
+		<lib.jogl.name>jogl-all-natives-windows-amd64</lib.jogl.name>
+		<lib.jogl.path>/lib/jogl-all-natives-windows-amd64.jar</lib.jogl.path>
+		<lib.gluegen.name>gluegen-rt-natives-windows-amd64.jar</lib.gluegen.name>
+		<lib.gluegen.path>/lib/gluegen-rt-natives-windows-amd64.jar</lib.gluegen.path>
+		<jni.win64.path>jni/win64</jni.win64.path>
+	</properties>
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+		<resources>
+
+			<resource>
+				<directory>${libs.path}/${jni.win64.path}</directory>
+				<includes>
+					<include>*.*</include>
+				</includes>
+			</resource>
+
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>1.4.0</version>
+				<extensions>true</extensions>
+
+				<configuration>
+					<instructions>
+						<Export-Package>!*</Export-Package>
+						<Import-Package>!*</Import-Package>
+						<Embed-Dependency>*;scope=system;inline=true</Embed-Dependency>
+						<Bundle-Name>${project.name}</Bundle-Name>
+						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Fragment-Host>de.jreality.core.bundle;bundle-version="${project.version}"</Fragment-Host>
+						<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
+						<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
+						<Bundle-ClassPath>.</Bundle-ClassPath>
+						<Bundle-NativeCode>gluegen-rt.dll;jogl_desktop.dll;jogl_mobile.dll;jinput-dx8_64.dll;jinput-raw_64.dll;nativewindow_awt.dll;nativewindow_win32.dll;newt.dll;osname=win32;processor=x86_64</Bundle-NativeCode>
+					</instructions>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>${project.groupId}.${project.artifactId}</groupId>
+			<artifactId>${lib.jogl.name}</artifactId>
+			<scope>system</scope>
+			<version>${project.version}</version>
+			<systemPath>${libs.path}${lib.jogl.path}</systemPath>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}.${project.artifactId}</groupId>
+			<artifactId>${lib.gluegen.name}</artifactId>
+			<scope>system</scope>
+			<version>${project.version}</version>
+			<systemPath>${libs.path}${lib.gluegen.path}</systemPath>
+			<optional>true</optional>
+		</dependency>
+
+	</dependencies>
+
+</project>

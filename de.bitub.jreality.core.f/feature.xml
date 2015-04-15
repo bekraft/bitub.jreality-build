@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.jreality.core.f"
+      label="jReality Core Bundle Feature"
+      version="1.1.0"
+      provider-name="tu-berlin.de/math">
+
+   <description url="http://www3.math.tu-berlin.de/jreality/">
+      jReality is a Java based, open-source, full-featured 3D scene graph package designed for 3D visualization and specialized in mathematical visualization. It provides several backends, including a JOGL one for Java based OpenGL rendering. JReality is thread-safe, has a flexible shading model based on an attribute-inheritance mechanism in the scene graph, device-independent user interaction and support for true 3D audio (JACK). Furthermore, there are many support classes for transformations and geometry. It has a plugin system for assembling custom viewers, an active forum and a growing set of tutorial examples to help developers interested in using jReality to solve their Java 3D problems.
+   </description>
+
+   <copyright url="http://www3.math.tu-berlin.de/jreality/index.php?article_id=30">
+Copyright © 2003-2006, jReality Group: Charles Gunn, Tim Hoffmann, Markus Schmies, Steffen Weissmann
+All rights reserved.
+   </copyright>
+
+   <license url="http://www3.math.tu-berlin.de/jreality/index.php?article_id=30">
+      jReality is open source software, made available under a BSD license:
+
+Copyright © 2003-2006, jReality Group: Charles Gunn, Tim Hoffmann, Markus Schmies, Steffen Weissmann
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+ -Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ 
+- Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+- Neither the name of jReality nor the names of its contributors nor the names of their associated organizations may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+   </license>
+
+   <plugin
+         id="de.jreality.core.bundle"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.jreality.core.thirdparty.bundle"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.jreality.natives.win32_64.bundle"
+         os="win32"
+         arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+   <plugin
+         id="de.jreality.natives.linux64.bundle"
+         os="linux"
+         arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+</feature>

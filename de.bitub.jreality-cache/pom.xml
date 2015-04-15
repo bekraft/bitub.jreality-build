@@ -1,0 +1,155 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>de.bitub.jreality</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.1.0</version>
+		<relativePath>../pom.xml</relativePath>		
+	</parent>
+
+	<artifactId>de.jreality-cache</artifactId>
+	<name>jReality OSGI bundle cache</name>
+	<packaging>pom</packaging>
+		
+	<dependencies>
+	
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.core.bundle</artifactId>		
+				<version>${project.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.core.bundle</artifactId>		
+				<version>${project.version}</version>
+				<classifier>sources</classifier>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.core.thirdparty.bundle</artifactId>		
+				<version>${project.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.natives.win32_64.bundle</artifactId>		
+				<version>${project.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.natives.linux64.bundle</artifactId>		
+				<version>${project.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+	</dependencies>
+	
+
+	<build>
+			
+		<plugins>
+
+			<!-- Copy Maven dependencies -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-bundles-for-publishing</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.core.bundle</artifactId>		
+									<version>${project.version}</version>								
+								</artifactItem>
+								
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.core.bundle</artifactId>		
+									<version>${project.version}</version>
+									<classifier>sources</classifier>
+								</artifactItem>	
+
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.core.thirdparty.bundle</artifactId>
+									<version>${project.version}</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.natives.win32_64.bundle</artifactId>
+									<version>${project.version}</version>
+								</artifactItem>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.natives.linux64.bundle</artifactId>
+									<version>${project.version}</version>			
+								</artifactItem>							
+							</artifactItems>
+
+							<outputDirectory>${project.build.directory}/source/plugins</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- Generate the P2 repository. -->
+			<plugin>
+				<groupId>${tycho-groupid}.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<!-- Generate P2 repository -->
+						<id>generate-full-metadata</id>
+						<phase>install</phase>
+						<goals>
+							<goal>publish-features-and-bundles</goal>
+						</goals>
+						<configuration>
+							<sourceLocation>${project.build.directory}/source</sourceLocation>
+							<compress>false</compress>
+							<append>true</append>
+							<publishArtifacts>true</publishArtifacts>							
+						</configuration>						
+					</execution>
+				</executions>
+			</plugin>
+	
+			<!-- Category publishing -->
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>category-p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<target>${project.build.directory}/repository</target>
+					<categoryDefinition>${project.basedir}/category.xml</categoryDefinition>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

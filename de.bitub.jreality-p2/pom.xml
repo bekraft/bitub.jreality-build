@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.bitub.jreality</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.1.0</version>
+	</parent>
+
+	<artifactId>de.bitub.jreality-p2</artifactId>
+	<version>1.1.0</version>
+	<packaging>eclipse-repository</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-p2-publisher-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<publishArtifacts>true</publishArtifacts>
+					<compress>false</compress>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<includeAllDependencies>false</includeAllDependencies>
+				</configuration>
+			</plugin>
+
+			<!-- Mirror repository -->
+			<plugin>
+				<groupId>${tycho-groupid}.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tycho-extras-version}</version>
+				
+				<configuration>
+					
+					<source>
+						
+						<repository>
+							<url>${project.baseUri}target/repository</url>
+							<layout>p2</layout>
+						</repository>
+																													
+					</source>					
+					
+					<!-- The destination directory to mirror to. -->
+					<destination>${jreality.updatesiteLocal}</destination>					
+
+					<!-- Whether only strict dependencies should be followed. -->
+					<!-- "strict" means perfect version match -->
+					<followStrictOnly>true</followStrictOnly>
+					<!-- Whether or not to follow optional requirements. -->
+					<includeOptional>true</includeOptional>
+					<!-- Whether or not to follow non-greedy requirements. -->
+					<includeNonGreedy>true</includeNonGreedy>
+					<!-- include the latest version of each IU -->
+					<latestVersionOnly>true</latestVersionOnly>
+					<!-- don't mirror artifacts, only metadata -->
+					<mirrorMetadataOnly>false</mirrorMetadataOnly>
+					<!-- whether to compress the content.xml/artifacts.xml -->
+					<compress>true</compress>
+					<!-- whether to append to the target repository content -->
+					<append>true</append>
+					<!-- whether to mirror pack200 artifacts also. Available since tycho-extras 
+						0.17.0 -->
+					<includePacked>true</includePacked>
+				</configuration>
+				
+				<executions>
+					<execution>
+						<phase>install</phase>
+						
+						<goals>
+							<goal>mirror</goal>
+						</goals>
+					</execution>															
+				</executions>
+			</plugin>		
+		</plugins>
+	</build>
+</project>

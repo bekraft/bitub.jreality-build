@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <category-def name="all" label="All jReality OSGI compliant bundles"/>
+   <category-def name="core" label="jReality OSGI core bundles"/>
+   <iu>
+      <category name="all"/>
+      <query><expression type="match">providedCapabilities.exists(p | p.namespace == 'osgi.bundle')</expression></query>
+   </iu>
+   <iu>
+      <category name="core"/>
+      <query><expression type="match">id ~= /*.core.*/</expression></query> 
+   </iu>   
+</site>

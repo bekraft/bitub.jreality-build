@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="jReality Update Site" url="https://bitub.bauinformatik.tu-berlin.de/updatesites/jreality">
+      jReality Update Site (3rd party libraries, native libraries)
+   </description>
+   <feature url="features/de.jreality.core.f_0.0.0.jar" id="de.jreality.core.f" version="0.0.0">
+      <category name="de.jreality"/>
+   </feature>
+   <category-def name="de.jreality" label="jReality"/>
+</site>

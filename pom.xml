@@ -1,0 +1,185 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.bitub.jreality</groupId>
+	<artifactId>parent</artifactId>
+	<version>1.1.0</version>
+	<packaging>pom</packaging>
+
+	<name>${jreality.jobname}</name>
+
+	<properties>
+		<tycho-version>0.22.0</tycho-version>
+		<tycho-extras-version>0.22.0</tycho-extras-version>
+		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jreality.checkoutpath>${user.home}/jreality</jreality.checkoutpath>
+		<jreality.vendor>http://www3.math.tu-berlin.de/jreality/</jreality.vendor>
+		<jreality.updatesiteLocal>${user.home}/.p2/jreality</jreality.updatesiteLocal>
+		<jreality.jobname>jReality OSGI compliant bundle build</jreality.jobname>
+	</properties>
+
+	<profiles>
+
+		<profile>
+			<id>platform-juno</id>
+			<activation>
+				<property>
+					<name>platform-version-name</name>
+					<value>juno</value>
+				</property>
+			</activation>
+			<properties>
+				<targetPlatform>juno</targetPlatform>
+				<platformUsUrl>http://download.eclipse.org/releases/juno</platformUsUrl>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>platform-kepler</id>
+			<activation>
+				<property>
+					<name>platform-version-name</name>
+					<value>kepler</value>
+				</property>
+			</activation>
+			<properties>
+				<targetPlatform>kepler</targetPlatform>
+				<platformUsUrl>http://download.eclipse.org/releases/kepler</platformUsUrl>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>platform-luna</id>
+			<activation>
+				<property>
+					<name>platform-version-name</name>
+					<value>luna</value>
+				</property>
+			</activation>
+			<properties>
+				<targetPlatform>luna</targetPlatform>
+				<platformUsUrl>http://download.eclipse.org/releases/luna</platformUsUrl>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>build-p2</id>
+			<activation>
+				<property>
+					<name>build-p2</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<modules>
+
+				<!-- Adds installable units and p2 site configuration -->
+				<module>de.bitub.jreality.core.f</module>
+				<module>de.bitub.jreality-p2</module>
+
+			</modules>
+			<properties>
+				<jreality.jobname>jReality Eclipse P2 integration build</jreality.jobname>
+			</properties>
+
+			<repositories>
+
+				<repository>
+					<id>jrealitycache</id>
+					<url>${project.baseUri}../de.bitub.jreality-cache/target/repository</url>
+					<layout>p2</layout>
+				</repository>
+
+				<repository>
+					<id>eclipse</id>
+					<url>${platformUsUrl}</url>
+					<layout>p2</layout>
+				</repository>
+
+			</repositories>
+
+		</profile>
+
+	</profiles>
+
+
+	<modules>
+
+		<module>de.bitub.jreality.core.bundle</module>
+		<module>de.bitub.jreality.core.thirdparty.bundle</module>
+		<module>de.bitub.jreality.natives.win32_64.bundle</module>
+		<module>de.bitub.jreality.natives.linux64.bundle</module>
+		
+<!--
+		<module>de.bitub.jreality.io.bundle</module>
+		<module>de.bitub.jreality.io.thirdparty.bundle</module>
+		<module>de.bitub.jreality.swing.ui.bundle</module>
+		<module>de.bitub.jreality.swing.plugin.bundle</module>
+		<module>de.bitub.jreality.swing.plugin.thirdparty.bundle</module>
+-->
+
+		<module>de.bitub.jreality-cache</module>
+
+	</modules>
+
+	<build>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>1.4.0</version>
+			</plugin>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+
+				<configuration>
+					<resolver>p2</resolver>
+					<pomDependencies>consider</pomDependencies>
+
+					<dependency-resolution>
+				      <extraRequirements>
+				         <requirement>
+				            <type>eclipse-plugin</type>
+				            <id>de.jreality.core</id>
+				            <versionRange>0.0.0</versionRange>
+				         </requirement>
+				      </extraRequirements>
+				    </dependency-resolution>
+
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
