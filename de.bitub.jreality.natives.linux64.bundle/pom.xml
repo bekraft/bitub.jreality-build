@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>de.bitub.jreality</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.1.0</version>
+		<version>1.1.0.1e9c6c9</version>
 	</parent>
 
 	<artifactId>de.jreality.natives.linux64.bundle</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.0.1e9c6c9</version>
 	<packaging>bundle</packaging>
 
 	<name>jReality Natives OSGI Linux-amd64 libraries bundle</name>

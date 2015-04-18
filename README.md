@@ -25,7 +25,7 @@ set to 1.1.0. We can append a short head commit ID as build number to identify t
 	cd $JREALITY_SOURCE
 	NEW_VERSION_SNAPSHOT=1.1.0.`git rev-parse --short HEAD`
 	cd <back to build root>
-	mvn -Dtycho.mode=maven org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=$NEW_VERSION_SNAPSHOT
+	mvn -P build-osgi-cache,build-p2 -Dtycho.mode=maven org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=$NEW_VERSION_SNAPSHOT
 ```
 
 ### Build OSGI compliant bundles and bundle cache
@@ -34,7 +34,7 @@ First run clean install with the predefined profile "build-osgi". It will build 
 and store them into a temporary cache which will serve as a simple unstructured P2 repository.
 
 ```
-	mvn -P build-osgi -Djreality.checkoutpath=$JREALITY_SOURCE clean install
+	mvn -P build-osgi-cache -Djreality.checkoutpath=$JREALITY_SOURCE clean install
 ```
 
 Actually, it is possible to install the bundles from repository cache. But there are 
@@ -44,12 +44,12 @@ build step.
 ### Build Eclipse P2 integration
 
 First define the location of the public update site within the local system. Afterwards, run
-install without clean. Choose the proper profile (here "platform-luna") for your Eclipse platform.
+clean install. Choose the proper profile (here "platform-luna") for your Eclipse platform.
 The profile "build-p2" will add the remote and local repositories as well as the additional features.
 
 ```
     USITE=<absolute path to public update site>
-	mvn -P platform-luna,build-p2 -Djreality.updatesiteLocal=$USITE install
+	mvn -P platform-luna,build-p2 -Djreality.updatesiteLocal=$USITE clean install
 ```
 
 By default, the local update site is placed into the the current user's profile at "./.p2/jreality".
@@ -116,4 +116,21 @@ Original libraries from jReality:
  - itextpdf- 5.3.2.jar
  
  
-### Swing feature
+### UI feature
+
+The UI feature includes Core and IO; contains following additional bundles:
+ - UI bundle
+ - UI 3rd-party dependencies
+ 
+The UI unit covers the original targets of 
+ - swing, plugin
+
+### UI 3rd-party dependencies
+
+Original libraries from jReality:
+
+ - beans.jar
+ - bsh.jar
+ - colorpicker.jar
+ - jython-standalone-2.5.3.jar
+ - jrworkspace.jar 

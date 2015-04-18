@@ -4,7 +4,7 @@
 
 	<groupId>de.bitub.jreality</groupId>
 	<artifactId>parent</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.0.1e9c6c9</version>
 	<packaging>pom</packaging>
 
 	<name>${jreality.jobname}</name>
@@ -53,6 +53,7 @@
 		<profile>
 			<id>platform-luna</id>
 			<activation>
+				<activeByDefault>true</activeByDefault>
 				<property>
 					<name>platform-version-name</name>
 					<value>luna</value>
@@ -76,6 +77,8 @@
 
 				<!-- Adds installable units and p2 site configuration -->
 				<module>de.bitub.jreality.core.f</module>
+				<module>de.bitub.jreality.io.f</module>
+				<module>de.bitub.jreality.ui.f</module>
 				<module>de.bitub.jreality-p2</module>
 
 			</modules>
@@ -101,26 +104,34 @@
 
 		</profile>
 
+		<profile>
+			<id>build-osgi-cache</id>
+			<activation>
+				<property>
+					<name>build-osgi-cache</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<modules>
+
+				<!-- Adds OSGI cache build -->
+				<module>de.bitub.jreality.core.bundle</module>
+				<module>de.bitub.jreality.core.thirdparty.bundle</module>
+				<module>de.bitub.jreality.natives.win32_64.bundle</module>
+				<module>de.bitub.jreality.natives.linux64.bundle</module>
+
+				<module>de.bitub.jreality.io.bundle</module>
+				<module>de.bitub.jreality.io.thirdparty.bundle</module>
+
+				<module>de.bitub.jreality.ui.bundle</module>
+				<module>de.bitub.jreality.ui.thirdparty.bundle</module>
+
+				<module>de.bitub.jreality-cache</module>
+
+			</modules>			
+		</profile>
+
 	</profiles>
-
-
-	<modules>
-
-		<module>de.bitub.jreality.core.bundle</module>
-		<module>de.bitub.jreality.core.thirdparty.bundle</module>
-		<module>de.bitub.jreality.natives.win32_64.bundle</module>
-		<module>de.bitub.jreality.natives.linux64.bundle</module>
-		<module>de.bitub.jreality.io.bundle</module>
-		<module>de.bitub.jreality.io.thirdparty.bundle</module>
-<!--
-		<module>de.bitub.jreality.swing.ui.bundle</module>
-		<module>de.bitub.jreality.swing.plugin.bundle</module>
-		<module>de.bitub.jreality.swing.plugin.thirdparty.bundle</module>
--->
-
-		<module>de.bitub.jreality-cache</module>
-
-	</modules>
 
 	<build>
 

@@ -5,11 +5,11 @@
 	<parent>
 		<groupId>de.bitub.jreality</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.1.0</version>
+		<version>1.1.0.1e9c6c9</version>
 	</parent>
 
 	<artifactId>de.bitub.jreality-p2</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.0.1e9c6c9</version>
 	<packaging>eclipse-repository</packaging>
 
 	<build>

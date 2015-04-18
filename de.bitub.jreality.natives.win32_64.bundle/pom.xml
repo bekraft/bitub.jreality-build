@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>de.bitub.jreality</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.1.0</version>
+		<version>1.1.0.1e9c6c9</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>de.jreality.natives.win32_64.bundle</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.0.1e9c6c9</version>
 	<packaging>bundle</packaging>
 	<name>jReality Natives OSGI Windows-64 libraries bundle</name>
 	

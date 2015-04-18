@@ -8,7 +8,7 @@
 		<version>1.1.0.1e9c6c9</version>
 	</parent>
 
-	<artifactId>de.jreality.core.f</artifactId>
+	<artifactId>de.jreality.ui.f</artifactId>
 	<packaging>eclipse-feature</packaging>
 
 </project>

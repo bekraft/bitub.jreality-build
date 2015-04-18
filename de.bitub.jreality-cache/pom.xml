@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>de.bitub.jreality</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.1.0</version>
+		<version>1.1.0.1e9c6c9</version>
 		<relativePath>../pom.xml</relativePath>		
 	</parent>
 
@@ -19,7 +19,7 @@
 				<groupId>${project.groupId}</groupId>
 				<artifactId>de.jreality.core.bundle</artifactId>		
 				<version>${project.version}</version>
-				<scope>provided</scope>
+				<!-- <scope>provided</scope> -->
 			</dependency>
 
 			<dependency>
@@ -27,29 +27,73 @@
 				<artifactId>de.jreality.core.bundle</artifactId>		
 				<version>${project.version}</version>
 				<classifier>sources</classifier>
-				<scope>provided</scope>
+				<!-- <scope>provided</scope> -->
 			</dependency>
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>de.jreality.core.thirdparty.bundle</artifactId>		
 				<version>${project.version}</version>
-				<scope>provided</scope>
+				<!-- <scope>provided</scope> -->
 			</dependency>
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>de.jreality.natives.win32_64.bundle</artifactId>		
 				<version>${project.version}</version>
-				<scope>provided</scope>
+				<!-- <scope>provided</scope> -->
 			</dependency>
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>de.jreality.natives.linux64.bundle</artifactId>		
 				<version>${project.version}</version>
-				<scope>provided</scope>
+				<!-- <scope>provided</scope> -->
 			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.io.bundle</artifactId>		
+				<version>${project.version}</version>
+				<!-- <scope>provided</scope> -->
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.io.bundle</artifactId>		
+				<version>${project.version}</version>
+				<classifier>sources</classifier>
+				<!-- <scope>provided</scope> -->
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.io.thirdparty.bundle</artifactId>		
+				<version>${project.version}</version>
+				<!-- <scope>provided</scope> -->
+			</dependency>			
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.ui.bundle</artifactId>		
+				<version>${project.version}</version>
+				<!-- <scope>provided</scope> -->
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.ui.bundle</artifactId>		
+				<version>${project.version}</version>
+				<classifier>sources</classifier>
+				<!-- <scope>provided</scope> -->
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>de.jreality.ui.thirdparty.bundle</artifactId>		
+				<version>${project.version}</version>
+				<!-- <scope>provided</scope> -->
+			</dependency>			
 
 	</dependencies>
 	
@@ -65,7 +109,7 @@
 				<executions>
 					<execution>
 						<id>copy-bundles-for-publishing</id>
-						<phase>install</phase>
+						<phase>package</phase>
 						<goals>
 							<goal>copy</goal>
 						</goals>
@@ -100,32 +144,68 @@
 									<artifactId>de.jreality.natives.linux64.bundle</artifactId>
 									<version>${project.version}</version>			
 								</artifactItem>							
-							</artifactItems>
+							
 
-							<outputDirectory>${project.build.directory}/source/plugins</outputDirectory>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.io.bundle</artifactId>		
+									<version>${project.version}</version>								
+								</artifactItem>
+								
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.io.bundle</artifactId>		
+									<version>${project.version}</version>
+									<classifier>sources</classifier>
+								</artifactItem>	
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.io.thirdparty.bundle</artifactId>
+									<version>${project.version}</version>
+								</artifactItem>
+
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.ui.bundle</artifactId>		
+									<version>${project.version}</version>								
+								</artifactItem>
+								
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.ui.bundle</artifactId>		
+									<version>${project.version}</version>
+									<classifier>sources</classifier>
+								</artifactItem>	
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>de.jreality.ui.thirdparty.bundle</artifactId>
+									<version>${project.version}</version>
+								</artifactItem> 
+
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/repository/plugins</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 			
-			<!-- Generate the P2 repository. -->
+			<!-- Generate the P2 repository -->
 			<plugin>
 				<groupId>${tycho-groupid}.extras</groupId>
 				<artifactId>tycho-p2-extras-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<executions>
 					<execution>
-						<!-- Generate P2 repository -->
 						<id>generate-full-metadata</id>
-						<phase>install</phase>
+						<phase>package</phase>
 						<goals>
 							<goal>publish-features-and-bundles</goal>
 						</goals>
 						<configuration>
-							<sourceLocation>${project.build.directory}/source</sourceLocation>
+							<sourceLocation>${project.build.directory}/repository</sourceLocation>
 							<compress>false</compress>
-							<append>true</append>
-							<publishArtifacts>true</publishArtifacts>							
+							<append>false</append>
+							<publishArtifacts>false</publishArtifacts>							
 						</configuration>						
 					</execution>
 				</executions>
@@ -140,6 +220,7 @@
 					<execution>
 						<phase>install</phase>
 						<goals>
+							<goal>p2-metadata</goal>
 							<goal>category-p2-metadata</goal>
 						</goals>
 					</execution>
@@ -147,6 +228,7 @@
 				<configuration>
 					<target>${project.build.directory}/repository</target>
 					<categoryDefinition>${project.basedir}/category.xml</categoryDefinition>
+					<defaultP2Metadata>false</defaultP2Metadata>				
 				</configuration>
 			</plugin>
 

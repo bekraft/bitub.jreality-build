@@ -8,31 +8,32 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>de.jreality.io.thirdparty.bundle</artifactId>
+	<artifactId>de.jreality.ui.thirdparty.bundle</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>jReality IO 3rd-party dependencies bundle</name>
-
+	<name>jReality UI 3rd-party dependencies bundle</name>
 
 	<properties>
-
 		<libs.path>${jreality.checkoutpath}</libs.path>
 
-		<lib.antlr.name>antlr-3.4-complete</lib.antlr.name>
-		<lib.antlr.path>/lib/antlr-3.4-complete.jar</lib.antlr.path>
+		<lib.bsh.name>bsh</lib.bsh.name>
+		<lib.bsh.path>/lib/bsh.jar </lib.bsh.path>
 
-		<lib.xstream.name>xstream-1.4.7</lib.xstream.name>
-		<lib.xstream.path>/lib/xstream-1.4.7.jar</lib.xstream.path>
+		<lib.jython.name>jython-standalone-2.5.3</lib.jython.name>
+		<lib.jython.path>/lib/jython-standalone-2.5.3.jar</lib.jython.path>
 
-		<lib.xpp3.name>xpp3_min-1.1.4c</lib.xpp3.name>
-		<lib.xpp3.path>/lib/xpp3_min-1.1.4c.jar</lib.xpp3.path>
+		<lib.jrworkspace.name>jrworkspace</lib.jrworkspace.name>
+		<lib.jrworkspace.path>/lib/jrworkspace.jar</lib.jrworkspace.path>
 
-		<lib.xmlpull.name>xmlpull-1.1.3.1</lib.xmlpull.name>
-		<lib.xmlpull.path>/lib/xmlpull-1.1.3.1.jar</lib.xmlpull.path>
+		<lib.colorpicker.name>colorpicker</lib.colorpicker.name>
+		<lib.colorpicker.path>/lib/colorpicker.jar</lib.colorpicker.path>
 
-		<lib.itextpdf.name>itextpdf-5.3.2</lib.itextpdf.name>
-		<lib.itextpdf.path>/lib/itextpdf-5.3.2.jar</lib.itextpdf.path>
+		<lib.beans.name>beans</lib.beans.name>
+		<lib.beans.path>/lib/beans.jar</lib.beans.path>
 
+		<lib.jterm.name>jterm</lib.jterm.name>
+		<lib.jterm.path>/lib/jterm.jar</lib.jterm.path>		
+				
 	</properties>
 
 	<build>
@@ -63,7 +64,6 @@
 				</configuration>
 
 			</plugin>
-
 		</plugins>
 	</build>
 
@@ -71,49 +71,58 @@
 
 		<dependency>
 			<groupId>${project.groupId}.${project.artifactId}</groupId>
-			<artifactId>${lib.antlr.name}</artifactId>
+			<artifactId>${lib.bsh.name}</artifactId>
 			<scope>system</scope>
 			<version>${project.version}</version>
-			<systemPath>${libs.path}${lib.antlr.path}</systemPath>
+			<systemPath>${libs.path}${lib.bsh.path}</systemPath>
 			<optional>true</optional>
 		</dependency>
 
 		<dependency>
 			<groupId>${project.groupId}.${project.artifactId}</groupId>
-			<artifactId>${lib.xstream.name}</artifactId>
+			<artifactId>${lib.jython.name}</artifactId>
 			<scope>system</scope>
 			<version>${project.version}</version>
-			<systemPath>${libs.path}${lib.xstream.path}</systemPath>
+			<systemPath>${libs.path}${lib.jython.path}</systemPath>
 			<optional>true</optional>
 		</dependency>
 
 		<dependency>
 			<groupId>${project.groupId}.${project.artifactId}</groupId>
-			<artifactId>${lib.xpp3.name}</artifactId>
+			<artifactId>${lib.beans.name}</artifactId>
 			<scope>system</scope>
 			<version>${project.version}</version>
-			<systemPath>${libs.path}${lib.xpp3.path}</systemPath>
+			<systemPath>${libs.path}${lib.beans.path}</systemPath>
 			<optional>true</optional>
 		</dependency>
 
 		<dependency>
 			<groupId>${project.groupId}.${project.artifactId}</groupId>
-			<artifactId>${lib.xmlpull.name}</artifactId>
+			<artifactId>${lib.jrworkspace.name}</artifactId>
 			<scope>system</scope>
 			<version>${project.version}</version>
-			<systemPath>${libs.path}${lib.xmlpull.path}</systemPath>
+			<systemPath>${libs.path}${lib.jrworkspace.path}</systemPath>
 			<optional>true</optional>
 		</dependency>
 
 		<dependency>
 			<groupId>${project.groupId}.${project.artifactId}</groupId>
-			<artifactId>${lib.itextpdf.name}</artifactId>
+			<artifactId>${lib.colorpicker.name}</artifactId>
 			<scope>system</scope>
 			<version>${project.version}</version>
-			<systemPath>${libs.path}${lib.itextpdf.path}</systemPath>
+			<systemPath>${libs.path}${lib.colorpicker.path}</systemPath>
 			<optional>true</optional>
 		</dependency>
 		
+		<dependency>
+			<groupId>${project.groupId}.${project.artifactId}</groupId>
+			<artifactId>${lib.jterm.name}</artifactId>
+			<scope>system</scope>
+			<version>${project.version}</version>
+			<systemPath>${libs.path}${lib.jterm.path}</systemPath>
+			<optional>true</optional>
+		</dependency>
+
 	</dependencies>
 
 </project>
