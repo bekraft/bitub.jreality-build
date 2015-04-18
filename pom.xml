@@ -78,7 +78,9 @@
 				<!-- Adds installable units and p2 site configuration -->
 				<module>de.bitub.jreality.core.f</module>
 				<module>de.bitub.jreality.io.f</module>
+				<!--
 				<module>de.bitub.jreality.ui.f</module>
+				-->
 				<module>de.bitub.jreality-p2</module>
 
 			</modules>
@@ -122,10 +124,10 @@
 
 				<module>de.bitub.jreality.io.bundle</module>
 				<module>de.bitub.jreality.io.thirdparty.bundle</module>
-
+				<!--
 				<module>de.bitub.jreality.ui.bundle</module>
 				<module>de.bitub.jreality.ui.thirdparty.bundle</module>
-
+				-->
 				<module>de.bitub.jreality-cache</module>
 
 			</modules>			
