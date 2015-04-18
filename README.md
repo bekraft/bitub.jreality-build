@@ -7,7 +7,7 @@ installation / provisioning process of Eclipse.
 ## Build process
 ### Clone jReality
 
-First checkout any jReality clone from gitirous to a local folder. 
+First checkout any jReality clone from gitorious to a local folder. 
 
 ```
 	JREALITY_SOURCE=<absolute path to root of clone>
@@ -18,7 +18,7 @@ The build itself is done by Maven. So no Ant build is needed.
 
 ### Clone bitub.jreality and set version number
 
-Some these version numbers are only provided by jReality project's home. Since now, it is
+A version number is given by jReality project's home. It is
 set to 1.1.0. We can append a short head commit ID as build number to identify the source revision.
 
 ```
@@ -44,7 +44,7 @@ build step.
 ### Build Eclipse P2 integration
 
 First define the location of the public update site within the local system. Afterwards, run
-clean install. Choose the proper profile (here "platform-luna") for your Eclipse platform.
+clean install. Choose a proper profile (here "platform-luna") for your Eclipse platform.
 The profile "build-p2" will add the remote and local repositories as well as the additional features.
 
 ```
@@ -57,7 +57,6 @@ By default, the local update site is placed into the the current user's profile 
 ### Installing in Eclipse
 
 Add a new update site location (either local or remote) in Eclipse via Help/Install new software. 
-To use jReality as a simple view, have a look to the example feature.
 
 ## Packaging of jReality 
 
@@ -138,4 +137,3 @@ Original libraries from jReality:
 ## ToDo
 
 - UI 3rd-party bundle is not recognized by p2-metadata goal
-- Fix split package problem of UI, IO and Core
