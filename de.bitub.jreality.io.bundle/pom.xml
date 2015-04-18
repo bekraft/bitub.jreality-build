@@ -44,7 +44,7 @@
 
 				<configuration>
 					<instructions>
-						<Export-Package>de.jreality.io,de.jreality.reader,de.jreality.util,de.jreality.writer</Export-Package>
+						<Export-Package>de.jreality.io.*,de.jreality.reader.*,de.jreality.util.*,de.jreality.writer.*</Export-Package>
 						<Import-Package>!*</Import-Package>
 						<Embed-Transitive>false</Embed-Transitive>
 						<Embed-Dependency>!*;scope=runtime;inline=false</Embed-Dependency>

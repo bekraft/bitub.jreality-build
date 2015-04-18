@@ -11,7 +11,7 @@ First checkout any jReality clone from gitirous to a local folder.
 
 ```
 	JREALITY_SOURCE=<absolute path to root of clone>
-	git clone http://	
+	git clone https://www.gitorious.org/jreality
 ```
 
 The build itself is done by Maven. So no Ant build is needed.
@@ -30,7 +30,7 @@ set to 1.1.0. We can append a short head commit ID as build number to identify t
 
 ### Build OSGI compliant bundles and bundle cache
 
-First run clean install with the predefined profile "build-osgi". It will build the OSGI bundles
+First run clean install with the predefined profile "build-osgi-cache". It will build the OSGI bundles
 and store them into a temporary cache which will serve as a simple unstructured P2 repository.
 
 ```
@@ -134,3 +134,8 @@ Original libraries from jReality:
  - colorpicker.jar
  - jython-standalone-2.5.3.jar
  - jrworkspace.jar 
+
+## ToDo
+
+- UI 3rd-party bundle is not recognized by p2-metadata goal
+- Fix split package problem of UI, IO and Core
