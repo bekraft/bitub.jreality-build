@@ -124,10 +124,10 @@
 
 				<module>de.bitub.jreality.io.bundle</module>
 				<module>de.bitub.jreality.io.thirdparty.bundle</module>
-				<!--
+				
 				<module>de.bitub.jreality.ui.bundle</module>
 				<module>de.bitub.jreality.ui.thirdparty.bundle</module>
-				-->
+				
 				<module>de.bitub.jreality-cache</module>
 
 			</modules>			
