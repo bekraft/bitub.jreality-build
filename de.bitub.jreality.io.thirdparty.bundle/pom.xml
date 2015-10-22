@@ -37,7 +37,7 @@
 
 	<build>
 
-		<finalName>${project.artifactId}-${project.version}</finalName>
+		<!-- <finalName>${project.artifactId}_${project.version}</finalName> -->
 
 		<plugins>
 
@@ -52,6 +52,7 @@
 						<_exportcontents>*</_exportcontents>
 						<Export-Package>*</Export-Package>
 						<Import-Package>!*</Import-Package>
+						<Embed-Transitive>false</Embed-Transitive>
 						<Embed-Dependency>*;scope=system;inline=true</Embed-Dependency>
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>

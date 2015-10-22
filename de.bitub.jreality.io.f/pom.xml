@@ -10,5 +10,15 @@
 
 	<artifactId>de.jreality.io.f</artifactId>
 	<packaging>eclipse-feature</packaging>
+<!--
+	<dependencies>
+		<dependency>
+			<groupId>de.bitub.jreality</groupId>
+			<artifactId>de.jreality-cache</artifactId>
+			<version>${project.version}</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+-->
 
 </project>

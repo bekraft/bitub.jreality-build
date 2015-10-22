@@ -14,8 +14,6 @@
 
 	<build>
 
-		<finalName>${project.artifactId}-${project.version}</finalName>
-
 		<plugins>
 
 			<plugin>
@@ -55,11 +53,7 @@
 						<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 						<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
 						<Bundle-ClassPath>.</Bundle-ClassPath>
-						<Require-Bundle>de.jreality.core.bundle;visibility:=reexport;bundle-version="${project.version}",
-							de.jreality.io.bundle;visibility:=reexport;bundle-version="${project.version}",
-							de.jreality.core.thirdparty.bundle;bundle-version="${project.version}",
-							de.jreality.io.thirdparty.bundle;bundle-version="${project.version}",
-							de.jreality.ui.thirdparty.bundle;bundle-version="${project.version}"</Require-Bundle>
+						<Require-Bundle>de.jreality.io.bundle;visibility:=reexport;bundle-version="${project.version}",de.jreality.ui.thirdparty.bundle;bundle-version="${project.version}"</Require-Bundle>
 					</instructions>
 				</configuration>
 

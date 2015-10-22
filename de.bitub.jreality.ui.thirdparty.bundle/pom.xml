@@ -17,10 +17,7 @@
 		<libs.path>${jreality.checkoutpath}</libs.path>
 
 		<lib.bsh.name>bsh</lib.bsh.name>
-		<lib.bsh.path>/lib/bsh.jar </lib.bsh.path>
-
-		<lib.jython.name>jython-standalone-2.5.3</lib.jython.name>
-		<lib.jython.path>/lib/jython-standalone-2.5.3.jar</lib.jython.path>
+		<lib.bsh.path>/lib/bsh.jar</lib.bsh.path>
 
 		<lib.jrworkspace.name>jrworkspace</lib.jrworkspace.name>
 		<lib.jrworkspace.path>/lib/jrworkspace.jar</lib.jrworkspace.path>
@@ -38,8 +35,6 @@
 
 	<build>
 
-		<finalName>${project.artifactId}-${project.version}</finalName>
-
 		<plugins>
 
 			<plugin>
@@ -53,6 +48,7 @@
 						<_exportcontents>*</_exportcontents>
 						<Export-Package>*</Export-Package>
 						<Import-Package>!*</Import-Package>
+						<Embed-Transitive>false</Embed-Transitive>
 						<Embed-Dependency>*;scope=system;inline=true</Embed-Dependency>
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>
@@ -70,20 +66,17 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>org.python</groupId>
+			<artifactId>jython-standalone</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+
+		<dependency>
 			<groupId>${project.groupId}.${project.artifactId}</groupId>
 			<artifactId>${lib.bsh.name}</artifactId>
 			<scope>system</scope>
 			<version>${project.version}</version>
 			<systemPath>${libs.path}${lib.bsh.path}</systemPath>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>${project.groupId}.${project.artifactId}</groupId>
-			<artifactId>${lib.jython.name}</artifactId>
-			<scope>system</scope>
-			<version>${project.version}</version>
-			<systemPath>${libs.path}${lib.jython.path}</systemPath>
 			<optional>true</optional>
 		</dependency>
 
