@@ -25,16 +25,16 @@ set to 1.1.0. We can append a short head commit ID as build number to identify t
 	cd $JREALITY_SOURCE
 	NEW_VERSION_SNAPSHOT=1.1.0.`git rev-parse --short HEAD`
 	cd <back to build root>
-	mvn -P build-osgi-cache,build-p2 -Dtycho.mode=maven org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=$NEW_VERSION_SNAPSHOT
+	mvn -P build-osgi,build-p2 -Dtycho.mode=maven org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=$NEW_VERSION_SNAPSHOT
 ```
 
 ### Build OSGI compliant bundles and bundle cache
 
-First run clean install with the predefined profile "build-osgi-cache". It will build the OSGI bundles
+First run clean install with the predefined profile "build-osgi". It will build the OSGI bundles
 and store them into a temporary cache which will serve as a simple unstructured P2 repository.
 
 ```
-	mvn -P build-osgi-cache -Djreality.checkoutpath=$JREALITY_SOURCE clean install
+	mvn -P build-osgi -Djreality.checkoutpath=$JREALITY_SOURCE clean install
 ```
 
 Actually, it is possible to install the bundles from repository cache. But there are 
