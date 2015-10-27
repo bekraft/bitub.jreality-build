@@ -20,10 +20,10 @@
 		<libs.path>${jreality.checkoutpath}</libs.path>
 
 		<lib.gluegen.name>gluegen-rt</lib.gluegen.name>
-		<lib.gluegen.path>/lib/gluegen-rt.jar</lib.gluegen.path>
+		<lib.gluegen.path>/lib/jogamp/gluegen-rt.jar</lib.gluegen.path>
 
 		<lib.jogl.name>jogl-all</lib.jogl.name>
-		<lib.jogl.path>/lib/jogl-all.jar</lib.jogl.path>
+		<lib.jogl.path>/lib/jogamp/jogl-all.jar</lib.jogl.path>
 
 		<lib.netutil.name>NetUtil</lib.netutil.name>
 		<lib.netutil.path>/lib/NetUtil.jar</lib.netutil.path>
