@@ -7,12 +7,18 @@ installation / provisioning process of Eclipse.
 ## Build process
 ### Clone jReality
 
-First checkout any jReality clone from gitorious to a local folder. 
+First checkout any jReality clone from gitlab to a local folder. 
 
 ```
 	JREALITY_SOURCE=<absolute path to root of clone>
-	git clone https://www.gitorious.org/jreality
+	git clone https://gitlab.com/eddiejones/jreality.git
 ```
+See http://www3.math.tu-berlin.de/jreality/ for further information.
+
+Note:
+
+jReality provides a Maven build support by its own within a separated branch. This Maven build is
+an OSGI bundle build with P2 integration for Eclipse.
 
 The build itself is done by Maven. So no Ant build is needed.
 
