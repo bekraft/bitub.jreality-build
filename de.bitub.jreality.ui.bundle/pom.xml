@@ -103,42 +103,42 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>de.bitub.jreality</groupId>
 			<artifactId>de.jreality.core.bundle</artifactId>
 			<version>1.1.0.1e9c6c9</version>
 			<type>bundle</type>
 		</dependency>
 
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>de.bitub.jreality</groupId>
 			<artifactId>de.jreality.io.bundle</artifactId>
 			<version>1.1.0.1e9c6c9</version>
 			<type>bundle</type>
 		</dependency>
 
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>de.bitub.jreality</groupId>
 			<artifactId>de.jreality.core.thirdparty.bundle</artifactId>		
 			<version>1.1.0.1e9c6c9</version>
 			<type>bundle</type>
 		</dependency>
 
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>de.bitub.jreality</groupId>
 			<artifactId>de.jreality.io.thirdparty.bundle</artifactId>
 			<version>1.1.0.1e9c6c9</version>
 			<type>bundle</type>
 		</dependency>
 
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>de.bitub.jreality</groupId>
 			<artifactId>de.jreality.ui.thirdparty.bundle</artifactId>
 			<version>1.1.0.1e9c6c9</version>
 			<type>bundle</type>
 		</dependency>
 
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>de.bitub.jreality</groupId>
 			<artifactId>org.jython</artifactId>
 			<version>${jreality.jython.version}</version>
 			<type>bundle</type>
