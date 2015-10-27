@@ -37,19 +37,15 @@
 
 	<build>
 
-		<!-- <finalName>${project.artifactId}_${project.version}</finalName> -->
-
 		<plugins>
 
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>1.4.0</version>
-				<extensions>true</extensions>
 
 				<configuration>
-					<instructions>
-						<_exportcontents>*</_exportcontents>
+					<instructions>						
+						<_removeheaders>Built-By,Main-Class,Originally-Created-By</_removeheaders>
 						<Export-Package>*</Export-Package>
 						<Import-Package>!*</Import-Package>
 						<Embed-Transitive>false</Embed-Transitive>

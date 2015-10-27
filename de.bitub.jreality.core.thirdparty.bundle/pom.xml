@@ -59,12 +59,10 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>1.4.0</version>
-				<extensions>true</extensions>
 
 				<configuration>
 					<instructions>
-						<_exportcontents>*</_exportcontents>
+						<_removeheaders>Built-By,Main-Class,Include-Resource</_removeheaders>
 						<Export-Package>*</Export-Package>
 						<Import-Package>!*</Import-Package>
 						<Embed-Dependency>*;scope=system;inline=true</Embed-Dependency>

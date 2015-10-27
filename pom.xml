@@ -13,12 +13,17 @@
 		<tycho-version>0.23.1</tycho-version>
 		<tycho-extras-version>0.23.1</tycho-extras-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
+		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
 		<jreality.checkoutpath>${user.home}/jreality</jreality.checkoutpath>
 		<jreality.vendor>http://www3.math.tu-berlin.de/jreality/</jreality.vendor>
+		
 		<jreality.updatesiteLocal>${user.home}/.p2/jreality/${targetPlatform}</jreality.updatesiteLocal>
 		<jreality.osgiUpdatesiteLocal>file:///${user.home}/.p2/jreality/osgi</jreality.osgiUpdatesiteLocal>
 		<jreality.jobname>jReality OSGI compliant bundle build</jreality.jobname>
+
+		<jreality.jython.version>2.5.3</jreality.jython.version>
 	</properties>
 
 	<profiles>
@@ -139,7 +144,7 @@
 				<module>de.bitub.jreality.io.thirdparty.bundle</module>
 
 				<module>de.bitub.jreality.ui.bundle</module>
-				
+				<module>org.jython</module>
 				<module>de.bitub.jreality.ui.thirdparty.bundle</module>
 				
 				<module>de.bitub.jreality-cache</module>
@@ -157,6 +162,7 @@
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<version>1.4.0</version>
+				<extensions>true</extensions>
 			</plugin>
 
 			<plugin>

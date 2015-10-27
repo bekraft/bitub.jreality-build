@@ -82,7 +82,13 @@
 				<groupId>${project.groupId}</groupId>
 				<artifactId>de.jreality.ui.thirdparty.bundle</artifactId>		
 				<version>${project.version}</version>
-			</dependency>			
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>org.jython</artifactId>		
+				<version>2.5.3</version>
+			</dependency>
 
 	</dependencies>
 	
@@ -90,58 +96,6 @@
 	<build>
 			
 		<plugins>
-			<!--
-			<plugin>
-		        <artifactId>maven-resources-plugin</artifactId>
-		        <version>2.7</version>
-		        <executions>
-		          <execution>
-		            <id>copy-resources</id>
-		            <phase>process-resources</phase>
-		            <goals>
-		              <goal>copy-resources</goal>
-		            </goals>
-		            <configuration>
-		              <outputDirectory>${project.build.directory}/repository/plugins</outputDirectory>
-		              <resources>          
-		                <resource>
-		                  <directory>..</directory>
-		                  <includes>
-          					<include>**/*.jar</include>
-        				  </includes>
-		                </resource>
-		              </resources>              
-		            </configuration>            
-		          </execution>
-		        </executions>
-	      	</plugin>
-			-->
-			<!--
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-									
-					<execution>
-						<id>cloneUpdatesite</id>
-						<phase>process-resources</phase>
-						<configuration>
-							<tasks>
-								<mkdir dir="${project.build.directory}/repository/plugins"/>
-								<copy todir="${project.build.directory}/repository/plugins">
-									<fileset dir="${basedir}/.." includes="**/*.jar" />
-								</copy>
-							</tasks>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>			
-			-->
-			
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>2.10</version>
@@ -230,6 +184,13 @@
 									<artifactId>de.jreality.ui.thirdparty.bundle</artifactId>
 									<version>${project.version}</version>
 									<destFileName>de.jreality.ui.thirdparty.bundle_${project.version}.jar</destFileName>
+								</artifactItem> 
+
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>org.jython</artifactId>
+									<version>2.5.3</version>
+									<destFileName>org.jython_2.5.3.jar</destFileName>
 								</artifactItem> 
 
 							</artifactItems>
