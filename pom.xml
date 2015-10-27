@@ -98,7 +98,7 @@
 				<!-- Adds installable units and p2 site configuration -->
 				<module>de.bitub.jreality.core.f</module>				
 				<module>de.bitub.jreality.io.f</module>				
-				<!-- <module>de.bitub.jreality.ui.f</module> -->
+				<module>de.bitub.jreality.ui.f</module>
 				<module>de.bitub.jreality-p2</module>
 
 			</modules>
