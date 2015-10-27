@@ -34,6 +34,9 @@ set to 1.1.0. We can append a short head commit ID as build number to identify t
 	mvn -P build-osgi,build-p2 -Dtycho.mode=maven org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=$NEW_VERSION_SNAPSHOT
 ```
 
+There are two disjoint profiles. "build-osgi" will repackage and compile an existing jReality clone into OSGI compliant bundles.
+"build-p2" will take an existing OSGI compliant build and restructures it into a P2 update site. 
+
 ### Build OSGI compliant bundles and bundle cache
 
 First run clean install with the predefined profile "build-osgi". It will build the OSGI bundles
@@ -50,12 +53,12 @@ build step.
 ### Build Eclipse P2 integration
 
 First define the location of the public update site within the local system. Afterwards, run
-clean install. Choose a proper profile (here "platform-luna") for your Eclipse platform.
+clean install. Choose a proper profile (here "platform-mars") for your Eclipse platform.
 The profile "build-p2" will add the remote and local repositories as well as the additional features.
 
 ```
     USITE=<absolute path to public update site>
-	mvn -P platform-luna,build-p2 -Djreality.updatesiteLocal=$USITE clean install
+	mvn -P platform-mars,build-p2 -Djreality.updatesiteLocal=$USITE clean install
 ```
 
 By default, the local update site is placed into the the current user's profile at "./.p2/jreality".
@@ -72,6 +75,8 @@ installable units for Eclipse (features).
 Since some of the dependencies are not available as Maven artifacts, all dependencies are taken
 from original jReality clone (lib folder). The 3rd-party libraries are inlined into a new OSGI compliant
 bundle. 
+
+Only Jython has been separated as distinct bundle, since it is the biggest bundle.
 
 ### Core feature
 
@@ -137,9 +142,12 @@ Original libraries from jReality:
  - beans.jar
  - bsh.jar
  - colorpicker.jar
- - jython-standalone-2.5.3.jar
- - jrworkspace.jar 
+ - jrworkspace.jar
+
+### Jython
+
+ - Jython 2.5.3 
 
 ## ToDo
 
-- UI 3rd-party bundle is not recognized by p2-metadata goal
+- MacOS natives fragment
