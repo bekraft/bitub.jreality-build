@@ -154,24 +154,120 @@
 
 	</profiles>
 
+
+
 	<build>
 
-		<plugins>
+		<pluginManagement>
+		  	<plugins>
 
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>1.4.0</version>
-				<extensions>true</extensions>
-			</plugin>
+		  		<!-- Apache Felix -->
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>1.4.0</version>
+					<extensions>true</extensions>
+				</plugin>
+
+				<!-- Tycho -->
+				<plugin>
+					<groupId>${tycho-groupid}</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<extensions>true</extensions>
+				</plugin>
+				<plugin>
+				  <groupId>${tycho-groupid}</groupId>
+				  <artifactId>tycho-source-plugin</artifactId>
+				  <version>${tycho-version}</version>
+				  <configuration>
+					<strictSrcIncludes>false</strictSrcIncludes>
+				  </configuration>
+				</plugin>
+				<plugin>
+				  <groupId>${tycho-groupid}</groupId>
+				  <artifactId>tycho-p2-director-plugin</artifactId>
+				  <version>${tycho-version}</version>
+				</plugin>
+				<plugin>
+				  <groupId>org.eclipse.tycho</groupId>
+				  <artifactId>tycho-p2-repository-plugin</artifactId>
+				  <version>${tycho-version}</version>
+				</plugin>
+				<plugin>
+				  <groupId>${tycho-groupid}.extras</groupId>
+				  <artifactId>tycho-source-feature-plugin</artifactId>
+				  <version>${tycho-extras-version}</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+
+
+		<plugins>
 
 			<plugin>
 				<groupId>${tycho-groupid}</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
-				<extensions>true</extensions>
 			</plugin>
 
+			<!-- Source publishing for Eclipse Plugins -->
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+				  <execution>
+					<id>plugin-source</id>
+					<goals>
+					  <goal>plugin-source</goal>
+					</goals>
+				  </execution>
+				</executions>
+			</plugin> 
+			
+			<plugin>
+				<groupId>${tycho-groupid}.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho-extras-version}</version>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<excludes>
+					  <plugin id="de.jreality.natives.win32_64.bundle"/>
+					  <plugin id="de.jreality.natives.linux64.bundle"/>
+					  <plugin id="de.jreality.core.thirdparty.bundle"/>
+					  <plugin id="de.jreality.io.thirdparty.bundle"/>
+					  <plugin id="de.jreality.ui.thirdparty.bundle"/>
+					  <plugin id="org.jython"/>
+					</excludes>								
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>${tycho-groupid}</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>attach-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>			
+
+			<!-- Target platform -->
 			<plugin>
 				<groupId>${tycho-groupid}</groupId>
 				<artifactId>target-platform-configuration</artifactId>

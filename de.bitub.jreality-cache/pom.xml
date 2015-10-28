@@ -121,7 +121,7 @@
 									<artifactId>de.jreality.core.bundle</artifactId>		
 									<version>${project.version}</version>
 									<classifier>sources</classifier>
-									<destFileName>de.jreality.core.bundle_${project.version}-sources.jar</destFileName>
+									<destFileName>de.jreality.core.bundle.source_${project.version}.jar</destFileName>
 								</artifactItem>	
 
 								<artifactItem>
@@ -156,7 +156,7 @@
 									<artifactId>de.jreality.io.bundle</artifactId>		
 									<version>${project.version}</version>
 									<classifier>sources</classifier>
-									<destFileName>de.jreality.io.bundle_${project.version}-sources.jar</destFileName>
+									<destFileName>de.jreality.io.bundle.source_${project.version}.jar</destFileName>
 								</artifactItem>	
 								<artifactItem>
 									<groupId>${project.groupId}</groupId>
@@ -177,7 +177,7 @@
 									<artifactId>de.jreality.ui.bundle</artifactId>		
 									<version>${project.version}</version>
 									<classifier>sources</classifier>
-									<destFileName>de.jreality.ui.bundle_${project.version}-sources.jar</destFileName>
+									<destFileName>de.jreality.ui.bundle.source_${project.version}.jar</destFileName>
 								</artifactItem>	
 								<artifactItem>
 									<groupId>${project.groupId}</groupId>

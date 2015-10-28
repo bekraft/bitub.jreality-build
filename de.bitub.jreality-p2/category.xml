@@ -3,16 +3,26 @@
    <description name="jReality Update Site">
       jReality Update Site
    </description>
-   <feature url="features/de.jreality.core.f_0.0.0.jar" id="de.jreality.core.f" version="0.0.0">
+   <feature url="features/de.jreality.core.f_0.0.0.qualifier.jar" id="de.jreality.core.f" version="0.0.0">
       <category name="de.jreality"/>
    </feature>
-   <feature url="features/de.jreality.io.f_0.0.0.jar" id="de.jreality.io.f" version="0.0.0">
+   <feature url="features/de.jreality.io.f_0.0.0.qualifier.jar" id="de.jreality.io.f" version="0.0.0">
       <category name="de.jreality"/>
-   </feature>   
-   
-   <feature url="features/de.jreality.ui.f_0.0.0.jar" id="de.jreality.ui.f" version="0.0.0">
+   </feature>      
+   <feature url="features/de.jreality.ui.f_0.0.0.qualifier.jar" id="de.jreality.ui.f" version="0.0.0">
+      <category name="de.jreality"/>
+   </feature>
+
+   <feature url="features/de.jreality.core.f_0.0.0.qualifier-sources-feature.jar" id="de.jreality.core.f.source" version="0.0.0">
+      <category name="de.jreality"/>
+   </feature>
+   <feature url="features/de.jreality.io.f_0.0.0.qualifier-sources-feature.jar" id="de.jreality.io.f.source" version="0.0.0">
+      <category name="de.jreality"/>
+   </feature>      
+   <feature url="features/de.jreality.ui.f_0.0.0.qualifier-sources-feature.jar" id="de.jreality.ui.f.source" version="0.0.0">
       <category name="de.jreality"/>
    </feature>
    
    <category-def name="de.jreality" label="jReality"/>
+   <category-def name="bitub.sgf.jreality" label="jReality Viewer and Examples"/>
 </site>
