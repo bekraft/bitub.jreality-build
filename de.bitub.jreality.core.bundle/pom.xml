@@ -43,12 +43,31 @@
 								<source>${jreality.checkoutpath}/src-gpgpu</source>
 								<source>${jreality.checkoutpath}/src-renderman</source>
 							</sources>
-
-
 						</configuration>
+					</execution>
+					<execution>
+			            <id>add-resource</id>
+			            <phase>generate-resources</phase>
+			            <goals>
+			              <goal>add-resource</goal>
+			            </goals>
+			            <configuration>
+			              <resources>
+			                <resource>
+			                  <directory>${jreality.checkoutpath}/src-tool/de/jreality/toolsystem/config</directory>
+			                  <targetPath>/de/jreality/toolsystem/config</targetPath>
+			                  <excludes>
+			                    <exclude>*.java</exclude>
+			                    <exclude>*.html</exclude>
+			                  </excludes>
+			                </resource>
+			              </resources>
+			            </configuration>
 					</execution>
 				</executions>
 			</plugin>
+
+
 
 			<plugin>
 				<groupId>org.apache.felix</groupId>
