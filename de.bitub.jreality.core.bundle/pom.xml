@@ -55,7 +55,7 @@
 			              <resources>
 			                <resource>
 			                  <directory>${jreality.checkoutpath}/src-tool/de/jreality/toolsystem/config</directory>
-			                  <targetPath>/de/jreality/toolsystem/config</targetPath>
+			                  <targetPath>${project.build.directory}/classes/de/jreality/toolsystem/config</targetPath>
 			                  <excludes>
 			                    <exclude>*.java</exclude>
 			                    <exclude>*.html</exclude>
