@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="bitub.sgf.jreality.categoryViews"
+            class="bitub.sgf.jreality.examples.views.JRealityCubeViewPart"
+            icon="platform:/plugin/bitub.sgf.jreality.core/icons/jreality_logo.png"
+            id="bitub.sgf.jreality.examples.views.JRealityCubeViewPart"
+            name="jReality Cubes Example View"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="bitub.sgf.jreality.categoryViews"
+            class="bitub.sgf.jreality.views.JRealityBaseSceneGraphViewPart"
+            icon="platform:/plugin/bitub.sgf.jreality.core/icons/jreality_logo.png"
+            id="bitub.sgf.jreality.views.JRealityBaseSceneGraphViewPart"
+            name="Default jReality Scenegraph View"
+            restorable="true">
+      </view>      
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:bitub.sgf.jreality.examples.views.JRealityCubeViewPart">
+         <command
+               commandId="bitub.sgf.jreality.commands.resetCameraPosition"
+               icon="platform:/plugin/bitub.sgf.jreality.core/icons/house_go.png"
+               label="%commandResetViewPosition.0"
+               style="push"
+               tooltip="%commandResetViewPosition.1">
+         </command>
+         <command
+               commandId="bitub.sgf.jreality.commands.showFaceEdges"
+               icon="platform:/plugin/bitub.sgf.jreality.core/icons/lines.png"
+               label="%commandShowEdges.0 "
+               style="toggle"
+               tooltip="%commandShowEdges.1">
+         </command>
+         <command
+               commandId="bitub.sgf.jreality.commands.showFaceVertices"
+               icon="platform:/plugin/bitub.sgf.jreality.core/icons/points.png"
+               label="%commandShowPoints.0"
+               style="toggle"
+               tooltip="%commandShowPoints.1">
+         </command>
+         <command
+               commandId="bitub.sgf.jreality.commands.showFacePolygons"
+               icon="platform:/plugin/bitub.sgf.jreality.core/icons/faces.png"
+               label="%commandShowFace.0"
+               style="toggle"
+               tooltip="%commandShowFace.1">
+         </command>
+      </menuContribution>
+	</extension>   
+</plugin>

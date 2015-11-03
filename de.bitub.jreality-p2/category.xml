@@ -22,6 +22,13 @@
    <feature url="features/de.jreality.ui.f_0.0.0.qualifier-sources-feature.jar" id="de.jreality.ui.f.source" version="0.0.0">
       <category name="de.jreality"/>
    </feature>
+
+   <feature url="features/bitub.sgf.jreality.f_0.0.0.qualifier.jar" id="bitub.sgf.jreality.f" version="0.0.0">
+      <category name="bitub.sgf.jreality"/>
+   </feature>   
+   <feature url="features/bitub.sgf.jreality.f_0.0.0.qualifier-sources-feature.jar" id="bitub.sgf.jreality.f.source" version="0.0.0">
+      <category name="bitub.sgf.jreality"/>
+   </feature>
    
    <category-def name="de.jreality" label="jReality"/>
    <category-def name="bitub.sgf.jreality" label="jReality Viewer and Examples"/>

@@ -99,8 +99,13 @@
 				<module>de.bitub.jreality.core.f</module>				
 				<module>de.bitub.jreality.io.f</module>				
 				<module>de.bitub.jreality.ui.f</module>
-				<module>de.bitub.jreality-p2</module>
+				
 
+				<module>bitub.sgf.jreality.core</module>
+				<module>bitub.sgf.jreality.extras</module>
+				<module>bitub.sgf.jreality.f</module>
+
+				<module>de.bitub.jreality-p2</module>
 			</modules>
 			<properties>
 				<jreality.jobname>jReality Eclipse P2 integration build</jreality.jobname>
