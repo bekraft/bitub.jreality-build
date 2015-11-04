@@ -13,3 +13,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: bitub.sgf.jreality.examples.views,
  bitub.sgf.jreality.views
 Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+

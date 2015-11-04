@@ -30,18 +30,18 @@
                tooltip="%commandResetViewPosition.1">
          </command>
          <command
-               commandId="bitub.sgf.jreality.commands.showFaceEdges"
-               icon="icons/lines.png"
-               label="%commandShowEdges.0 "
-               style="toggle"
-               tooltip="%commandShowEdges.1">
-         </command>
-         <command
                commandId="bitub.sgf.jreality.commands.showFaceVertices"
                icon="icons/points.png"
                label="%commandShowPoints.0"
                style="toggle"
                tooltip="%commandShowPoints.1">
+         </command>
+         <command
+               commandId="bitub.sgf.jreality.commands.showFaceEdges"
+               icon="icons/lines.png"
+               label="%commandShowEdges.0 "
+               style="toggle"
+               tooltip="%commandShowEdges.1">
          </command>
          <command
                commandId="bitub.sgf.jreality.commands.showFacePolygons"
