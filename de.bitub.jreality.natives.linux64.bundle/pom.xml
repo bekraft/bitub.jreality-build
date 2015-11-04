@@ -48,8 +48,7 @@
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>
 						<Bundle-Version>${project.version}</Bundle-Version>
-						<Fragment-Host>de.jreality.core.bundle;bundle-version="${project.version}"</Fragment-Host>
-						<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
+						<Fragment-Host>de.jreality.core.thirdparty.bundle;bundle-version="${project.version}"</Fragment-Host>
 						<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
 						<Bundle-NativeCode>libgluegen-rt.so;libjogl_desktop.so;libjogl_mobile.so;libjacknative.so;libjinput-linux64.so;libnativewindow_awt.so;libnativewindow_x11.so;libnewt.so;libpdnative.so;osname=linux;processor=x86_64</Bundle-NativeCode>
 					</instructions>
