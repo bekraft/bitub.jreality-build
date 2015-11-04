@@ -13,6 +13,7 @@ package bitub.sgf.jreality.views;
 import org.eclipse.swt.widgets.Composite;
 
 import bitub.sgf.jreality.views.viewer.JRealityContentViewer;
+import bitub.sgf.jreality.JRealityPlugin;
 import bitub.sgf.jreality.JRealityPlugin.ViewCoordinationSystem;
 import bitub.sgf.jreality.views.viewer.JRealityBaseContentViewer;
 
@@ -28,9 +29,19 @@ public class JRealityBaseViewPart extends JRealityViewPart
 {
   
   public final static String VIEW_ID = "bitub.sgf.jreality.views.JRealityBaseViewPart"; //$NON-NLS-1$
+
+  /**
+   * <!-- begin-user-doc -->
+   * Default length unit is 1.0  and axes coordination system is set by {@link JRealityPlugin#DEFAULT_COORDINATESYSTEM}.
+   * <!-- end-user-doc -->
+   * @generated NOT
+   */
+  public JRealityBaseViewPart()
+  {
+    super(JRealityPlugin.DEFAULT_COORDINATESYSTEM, 1.0);
+  }
   
   /**
-   * 
    * <!-- begin-user-doc -->
    * Default length unit is 1.0.
    * <!-- end-user-doc -->
@@ -38,7 +49,7 @@ public class JRealityBaseViewPart extends JRealityViewPart
    * The desired axes system.
    * @generated NOT
    */
-  public JRealityBaseViewPart(ViewCoordinationSystem axesSystem)
+  protected JRealityBaseViewPart(ViewCoordinationSystem axesSystem)
   {
     super(axesSystem, 1.0);
   }
