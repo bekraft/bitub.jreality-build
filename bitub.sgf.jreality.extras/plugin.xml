@@ -57,5 +57,58 @@
                tooltip="%commandShowFace.1">
          </command>
       </menuContribution>
-	</extension>   
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.views.ResourceNavigator?after=additions">
+         <menu
+               icon="platform:/plugin/bitub.sgf.jreality.core/icons/jreality_logo.png"
+               id="bitub.sgf.jreality.menu"
+               label="%commandCategory.0">
+               
+               <command
+		         commandId="bitub.sgf.jreality.commands.loadObjModel"
+		         label="%commandOpenOBJ.0"
+		         style="push"
+		         tooltip="%commandOpenOBJ.1">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <adapt
+                                 type="org.eclipse.core.resources.IResource">
+                              <test
+                                    forcePluginActivation="true"
+                                    property="org.eclipse.core.resources.extension"
+                                    value="obj">
+                              </test>
+                           </adapt>
+                        </and>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+	</extension>
+   <extension
+         point="org.eclipse.ui.commands">
+
+      <command
+            categoryId="bitub.sgf.jreality.commands.category"
+            description="%commandOpenOBJ.1"
+            id="bitub.sgf.jreality.commands.loadObjModel"
+            name="%commandOpenOBJ.0">
+      </command>         
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+         
+      <handler
+            class="bitub.sgf.jreality.commands.CommandLoadObjModelIntoView"
+            commandId="bitub.sgf.jreality.commands.loadObjModel">
+      </handler>         
+   </extension>   
 </plugin>

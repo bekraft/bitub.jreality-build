@@ -5,12 +5,14 @@ Bundle-SymbolicName: bitub.sgf.jreality.extras;singleton:=true
 Bundle-Version: 1.1.0.qualifier
 Require-Bundle: org.eclipse.ui;bundle-version="3.0.0",
  org.eclipse.core.runtime;bundle-version="3.0.0",
+ org.eclipse.core.resources;bundle-version="3.0.0",
  org.apache.log4j;bundle-version="1.2.15",
  bitub.sgf.jreality.core;bundle-version="[1.0.0,2.0.0)";visibility:=reexport,
  de.jreality.ui.bundle;bundle-version="[1.1.0,2.0.0)";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: bitub.sgf.jreality.examples.views,
+Export-Package: bitub.sgf.jreality.commands,
+ bitub.sgf.jreality.examples.views,
  bitub.sgf.jreality.views
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
