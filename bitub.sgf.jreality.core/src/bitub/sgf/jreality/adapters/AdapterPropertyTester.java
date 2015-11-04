@@ -31,10 +31,6 @@ public class AdapterPropertyTester extends PropertyTester
     if(property.equals("isAdaptableSceneComponent")) { //$NON-NLS-1$
             
       hasAdapter = Platform.getAdapterManager().hasAdapter(receiver, SceneGraphComponent.class.getName());
-      if(!hasAdapter) {
-        
-        myLog.debug(String.format("Transfered receiver \"%s\" has no adapter for \"%s\".",receiver, SceneGraphComponent.class.getName()));        
-      }      
     }
     
     return Boolean.valueOf(expectedValue.toString()) == hasAdapter;

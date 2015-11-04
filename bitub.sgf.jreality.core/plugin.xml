@@ -56,6 +56,7 @@
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <menu
                icon="icons/jreality_logo.png"
+               id="bitub.sgf.jreality.menu"
                label="%commandCategory.0">
             <command
                   commandId="bitub.sgf.jreality.commands.adaptSceneGraphComponent"
@@ -77,6 +78,7 @@
                   </with>
                </visibleWhen>
             </command>
+			            
          </menu>
       </menuContribution>
    </extension>
