@@ -17,19 +17,19 @@
 		<libs.path>${jreality.checkoutpath}</libs.path>
 
 		<lib.bsh.name>bsh</lib.bsh.name>
-		<lib.bsh.path>/lib/bsh.jar</lib.bsh.path>
+		<lib.bsh.path>/lib/console/bsh.jar</lib.bsh.path>
 
 		<lib.jrworkspace.name>jrworkspace</lib.jrworkspace.name>
-		<lib.jrworkspace.path>/lib/jrworkspace.jar</lib.jrworkspace.path>
+		<lib.jrworkspace.path>/lib/jtem/jrworkspace.jar</lib.jrworkspace.path>
 
 		<lib.colorpicker.name>colorpicker</lib.colorpicker.name>
 		<lib.colorpicker.path>/lib/colorpicker.jar</lib.colorpicker.path>
 
 		<lib.beans.name>beans</lib.beans.name>
-		<lib.beans.path>/lib/beans.jar</lib.beans.path>
+		<lib.beans.path>/lib/jtem/beans.jar</lib.beans.path>
 
 		<lib.jterm.name>jterm</lib.jterm.name>
-		<lib.jterm.path>/lib/jterm.jar</lib.jterm.path>		
+		<lib.jterm.path>/lib/console/jterm.jar</lib.jterm.path>		
 				
 	</properties>
 

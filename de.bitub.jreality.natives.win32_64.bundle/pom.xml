@@ -18,9 +18,9 @@
 		<libs.path>${jreality.checkoutpath}</libs.path>
 
 		<lib.jogl.name>jogl-all-natives-windows-amd64</lib.jogl.name>
-		<lib.jogl.path>/lib/jogamp/jogl-all-natives-windows-amd64.jar</lib.jogl.path>
+		<lib.jogl.path>/lib/jogl/jogl-all-natives-windows-amd64.jar</lib.jogl.path>
 		<lib.gluegen.name>gluegen-rt-natives-windows-amd64.jar</lib.gluegen.name>
-		<lib.gluegen.path>/lib/jogamp/gluegen-rt-natives-windows-amd64.jar</lib.gluegen.path>
+		<lib.gluegen.path>/lib/jogl/gluegen-rt-natives-windows-amd64.jar</lib.gluegen.path>
 		<jni.win64.path>jni/win64</jni.win64.path>
 	</properties>
 

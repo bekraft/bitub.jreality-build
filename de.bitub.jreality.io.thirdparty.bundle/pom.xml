@@ -19,19 +19,19 @@
 		<libs.path>${jreality.checkoutpath}</libs.path>
 
 		<lib.antlr.name>antlr-3.4-complete</lib.antlr.name>
-		<lib.antlr.path>/lib/antlr-3.4-complete.jar</lib.antlr.path>
+		<lib.antlr.path>/lib/io/antlr-3.4-complete.jar</lib.antlr.path>
 
 		<lib.xstream.name>xstream-1.4.7</lib.xstream.name>
-		<lib.xstream.path>/lib/xstream-1.4.7.jar</lib.xstream.path>
+		<lib.xstream.path>/lib/io/xstream-1.4.7.jar</lib.xstream.path>
 
 		<lib.xpp3.name>xpp3_min-1.1.4c</lib.xpp3.name>
-		<lib.xpp3.path>/lib/xpp3_min-1.1.4c.jar</lib.xpp3.path>
+		<lib.xpp3.path>/lib/io/xpp3_min-1.1.4c.jar</lib.xpp3.path>
 
 		<lib.xmlpull.name>xmlpull-1.1.3.1</lib.xmlpull.name>
-		<lib.xmlpull.path>/lib/xmlpull-1.1.3.1.jar</lib.xmlpull.path>
+		<lib.xmlpull.path>/lib/io/xmlpull-1.1.3.1.jar</lib.xmlpull.path>
 
 		<lib.itextpdf.name>itextpdf-5.3.2</lib.itextpdf.name>
-		<lib.itextpdf.path>/lib/itextpdf-5.3.2.jar</lib.itextpdf.path>
+		<lib.itextpdf.path>/lib/io/itextpdf-5.3.2.jar</lib.itextpdf.path>
 
 	</properties>
 

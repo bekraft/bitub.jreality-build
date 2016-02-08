@@ -20,28 +20,28 @@
 		<libs.path>${jreality.checkoutpath}</libs.path>
 
 		<lib.gluegen.name>gluegen-rt</lib.gluegen.name>
-		<lib.gluegen.path>/lib/jogamp/gluegen-rt.jar</lib.gluegen.path>
+		<lib.gluegen.path>/lib/jogl/gluegen-rt.jar</lib.gluegen.path>
 
 		<lib.jogl.name>jogl-all</lib.jogl.name>
-		<lib.jogl.path>/lib/jogamp/jogl-all.jar</lib.jogl.path>
+		<lib.jogl.path>/lib/jogl/jogl-all.jar</lib.jogl.path>
 
 		<lib.netutil.name>NetUtil</lib.netutil.name>
-		<lib.netutil.path>/lib/NetUtil.jar</lib.netutil.path>
+		<lib.netutil.path>/lib/audio/NetUtil.jar</lib.netutil.path>
 
 		<lib.hidapi.name>hidapi-1.1</lib.hidapi.name>
-		<lib.hidapi.path>/lib/hidapi-1.1.jar</lib.hidapi.path>
+		<lib.hidapi.path>/lib/tools/hidapi-1.1.jar</lib.hidapi.path>
 
 		<lib.jinput.name>jinput</lib.jinput.name>
-		<lib.jinput.path>/lib/jinput.jar</lib.jinput.path>
+		<lib.jinput.path>/lib/tools/jinput.jar</lib.jinput.path>
 
 		<lib.smrj.name>smrj</lib.smrj.name>
-		<lib.smrj.path>/lib/smrj.jar</lib.smrj.path>
+		<lib.smrj.path>/lib/portal/smrj.jar</lib.smrj.path>
 
 		<lib.jacknativeclient.name>jacknativeclient</lib.jacknativeclient.name>
-		<lib.jacknativeclient.path>/lib/jacknativeclient.jar</lib.jacknativeclient.path>
+		<lib.jacknativeclient.path>/lib/audio/jacknativeclient.jar</lib.jacknativeclient.path>
 
 		<lib.libpd.name>libpd</lib.libpd.name>
-		<lib.libpd.path>/lib/libpd.jar</lib.libpd.path>
+		<lib.libpd.path>/lib/audio/libpd.jar</lib.libpd.path>
 
 <!--
 		<lib.smrj-app.name>smrj-app</lib.smrj-app.name>
