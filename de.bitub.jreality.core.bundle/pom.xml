@@ -42,6 +42,8 @@
 								<source>${jreality.checkoutpath}/src-tool</source>
 								<source>${jreality.checkoutpath}/src-gpgpu</source>
 								<source>${jreality.checkoutpath}/src-renderman</source>
+								<source>${jreality.checkoutpath}/src-device</source>
+								<source>${jreality.checkoutpath}/src-plugin</source>
 							</sources>
 						</configuration>
 					</execution>

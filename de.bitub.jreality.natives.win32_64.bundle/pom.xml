@@ -9,7 +9,6 @@
 	</parent>
 
 	<artifactId>de.jreality.natives.win32_64.bundle</artifactId>
-	<version>1.1.0.1e9c6c9</version>
 	<packaging>bundle</packaging>
 	<name>jReality Natives OSGI Windows-64 libraries bundle</name>
 	
@@ -18,9 +17,9 @@
 		<libs.path>${jreality.checkoutpath}</libs.path>
 
 		<lib.jogl.name>jogl-all-natives-windows-amd64</lib.jogl.name>
-		<lib.jogl.path>/lib/jogamp/jogl-all-natives-windows-amd64.jar</lib.jogl.path>
+		<lib.jogl.path>/lib/jogl-all-natives-windows-amd64.jar</lib.jogl.path>
 		<lib.gluegen.name>gluegen-rt-natives-windows-amd64.jar</lib.gluegen.name>
-		<lib.gluegen.path>/lib/jogamp/gluegen-rt-natives-windows-amd64.jar</lib.gluegen.path>
+		<lib.gluegen.path>/lib/gluegen-rt-natives-windows-amd64.jar</lib.gluegen.path>
 		<jni.win64.path>jni/win64</jni.win64.path>
 	</properties>
 
@@ -50,7 +49,8 @@
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-SymbolicName>${project.artifactId};singleton:=true</Bundle-SymbolicName>
 						<Bundle-Version>${project.version}</Bundle-Version>
-						<Fragment-Host>de.jreality.core.thirdparty.bundle;bundle-version="${project.version}"</Fragment-Host>
+						<Fragment-Host>de.jreality.core.bundle;bundle-version="${project.version}"</Fragment-Host>
+						<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 						<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
 						<Bundle-ClassPath>.</Bundle-ClassPath>
 						<Bundle-NativeCode>gluegen-rt.dll;jogl_desktop.dll;jogl_mobile.dll;jinput-dx8_64.dll;jinput-raw_64.dll;nativewindow_awt.dll;nativewindow_win32.dll;newt.dll;osname=win32;processor=x86_64</Bundle-NativeCode>
