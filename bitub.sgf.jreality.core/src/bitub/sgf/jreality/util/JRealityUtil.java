@@ -357,11 +357,11 @@ public final class JRealityUtil
       polygonShader.setSmoothShading(false);
     }
 
-    DefaultLineShader lineShader = (DefaultLineShader) defaultGeometryShader.getLineShader();
-    lineShader.setTubeDraw(false);
-
-    DefaultPointShader pointShader = (DefaultPointShader) defaultGeometryShader.getPointShader();
-    pointShader.setSpheresDraw(false);
+//    DefaultLineShader lineShader = (DefaultLineShader) defaultGeometryShader.getLineShader();
+//    lineShader.setTubeDraw(false);
+//
+//    DefaultPointShader pointShader = (DefaultPointShader) defaultGeometryShader.getPointShader();
+//    pointShader.setSpheresDraw(false);
 
     return app;
   }
