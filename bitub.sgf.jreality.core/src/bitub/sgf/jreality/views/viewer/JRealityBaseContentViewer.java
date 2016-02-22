@@ -346,6 +346,18 @@ public class JRealityBaseContentViewer extends JRealityContentViewer
   {
     return m_sceneRootComponent;
   }
+  
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated NOT
+   * @see bitub.sgf.jreality.views.viewer.JRealityContentViewer#getRootNode()
+   */
+  @Override
+  public SceneGraphComponent getRootNode()
+  {
+    return m_root;
+  }
 
   /**
    * <!-- begin-user-doc -->
