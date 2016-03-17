@@ -4,6 +4,12 @@ This project aims to provide a Maven / Tycho controlled build process for P2 upd
 no new packages. It only restructures the jReality packages in order to match the expectationa of the P2
 installation / provisioning process of Eclipse.
 
+## Experimental update site
+
+Use the following URL within Eclipse P2 update mechanism:
+
+http://bekraft.github.io/bitub.jreality-build/mars/
+
 ## Build process
 ### Clone jReality
 
