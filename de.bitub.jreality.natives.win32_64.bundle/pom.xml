@@ -31,7 +31,11 @@
 			<resource>
 				<directory>${libs.path}/${jni.win64.path}</directory>
 				<includes>
-					<include>*.*</include>
+					<include>jinput-raw_64.dll</include>
+					<include>jinput-dx8_64.dll</include>
+					<include>soft_oal.dll</include>
+					<include>jocl.dll</include>
+					<include>jogl_cg.dll</include>
 				</includes>
 			</resource>
 
@@ -44,7 +48,7 @@
 				<configuration>
 					<instructions>
 						<_removeheaders>Built-By,Main-Class,Include-Resource</_removeheaders>
-						<Export-Package>!*</Export-Package>
+						<Export-Package>*</Export-Package>
 						<Import-Package>!*</Import-Package>
 						<Embed-Dependency>*;scope=system;inline=true</Embed-Dependency>
 						<Bundle-Name>${project.name}</Bundle-Name>
@@ -53,7 +57,8 @@
 						<Fragment-Host>de.jreality.core.thirdparty.bundle;bundle-version="${project.version}"</Fragment-Host>
 						<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
 						<Bundle-ClassPath>.</Bundle-ClassPath>
-						<Bundle-NativeCode>gluegen-rt.dll;jogl_desktop.dll;jogl_mobile.dll;jinput-dx8_64.dll;jinput-raw_64.dll;nativewindow_awt.dll;nativewindow_win32.dll;newt.dll;osname=win32;processor=x86_64</Bundle-NativeCode>
+						<!--<Bundle-NativeCode>gluegen-rt.dll;jogl_desktop.dll;jogl_mobile.dll;jinput-dx8_64.dll;jinput-raw_64.dll;nativewindow_awt.dll;nativewindow_win32.dll;newt.dll;osname=win32;processor=x86_64</Bundle-NativeCode>-->
+						<Bundle-NativeCode>jogl_cg.dll;jocl.dll;soft_oal.dll;jinput-dx8_64.dll;jinput-raw_64.dll;natives/windows-amd64/gluegen-rt.dll;natives/windows-amd64/jogl_desktop.dll;natives/windows-amd64/jogl_mobile.dll;natives/windows-amd64/nativewindow_awt.dll;natives/windows-amd64/nativewindow_win32.dll;natives/windows-amd64/newt.dll;osname=win32;processor=x86_64</Bundle-NativeCode>
 					</instructions>
 				</configuration>
 

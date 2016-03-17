@@ -29,7 +29,9 @@
 			<resource>
 				<directory>${libs.path}/${jni.linux64.path}</directory>
 				<includes>
-					<include>*.*</include>
+					<include>libpdnative.so</include>
+					<include>libjacknative.so</include>
+					<include>libjinput-linux64.so</include>
 				</includes>
 			</resource>
 		</resources>
@@ -42,7 +44,7 @@
 				<configuration>
 					<instructions>
 						<_removeheaders>Built-By,Main-Class,Include-Resource</_removeheaders>
-						<Export-Package>!*</Export-Package>
+						<Export-Package>*</Export-Package>
 						<Import-Package>!*</Import-Package>						
 						<Embed-Dependency>*;scope=system;inline=true</Embed-Dependency>
 						<Bundle-Name>${project.name}</Bundle-Name>
@@ -50,7 +52,7 @@
 						<Bundle-Version>${project.version}</Bundle-Version>
 						<Fragment-Host>de.jreality.core.thirdparty.bundle;bundle-version="${project.version}"</Fragment-Host>
 						<Bundle-Vendor>${jreality.vendor}</Bundle-Vendor>
-						<Bundle-NativeCode>libgluegen-rt.so;libjogl_desktop.so;libjogl_mobile.so;libjacknative.so;libjinput-linux64.so;libnativewindow_awt.so;libnativewindow_x11.so;libnewt.so;libpdnative.so;osname=linux;processor=x86_64</Bundle-NativeCode>
+						<Bundle-NativeCode>libjacknative.so;libjinput-linux64.so;libpdnative.so;natives/linux-amd64/libgluegen-rt.so;natives/linux-amd64/libjogl_desktop.so;natives/linux-amd64/libjogl_mobile.so;libjacknative.so;libjinput-linux64.so;natives/linux-amd64/libnativewindow_awt.so;natives/linux-amd64/libnativewindow_x11.so;natives/linux-amd64/libnewt.so;osname=linux;processor=x86_64</Bundle-NativeCode>
 					</instructions>
 				</configuration>
 

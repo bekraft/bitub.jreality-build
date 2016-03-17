@@ -30,8 +30,14 @@
 		<lib.xmlpull.name>xmlpull-1.1.3.1</lib.xmlpull.name>
 		<lib.xmlpull.path>/lib/io/xmlpull-1.1.3.1.jar</lib.xmlpull.path>
 
-		<lib.itextpdf.name>itextpdf-5.3.2</lib.itextpdf.name>
-		<lib.itextpdf.path>/lib/io/itextpdf-5.3.2.jar</lib.itextpdf.path>
+		<lib.itextpdf.name>itextpdf-5.5.5</lib.itextpdf.name>
+		<lib.itextpdf.path>/lib/io/itextpdf-5.5.5_dgdgitlab.jar</lib.itextpdf.path>
+
+		<lib.itextpdfa.name>itextpdf-pdfa-5.5.5</lib.itextpdfa.name>
+		<lib.itextpdfa.path>/lib/io/itext-pdfa-5.5.5.jar</lib.itextpdfa.path>
+
+		<lib.itextpdfxtra.name>itextpdf-xtra-5.5.5</lib.itextpdfxtra.name>
+		<lib.itextpdfxtra.path>/lib/io/itext-xtra-5.5.5.jar</lib.itextpdfxtra.path>
 
 	</properties>
 
@@ -110,7 +116,25 @@
 			<systemPath>${libs.path}${lib.itextpdf.path}</systemPath>
 			<optional>true</optional>
 		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}.${project.artifactId}</groupId>
+			<artifactId>${lib.itextpdfa.name}</artifactId>
+			<scope>system</scope>
+			<version>${project.version}</version>
+			<systemPath>${libs.path}${lib.itextpdfa.path}</systemPath>
+			<optional>true</optional>
+		</dependency>
 		
+		<dependency>
+			<groupId>${project.groupId}.${project.artifactId}</groupId>
+			<artifactId>${lib.itextpdfxtra.name}</artifactId>
+			<scope>system</scope>
+			<version>${project.version}</version>
+			<systemPath>${libs.path}${lib.itextpdfxtra.path}</systemPath>
+			<optional>true</optional>
+		</dependency>
+
 	</dependencies>
 
 </project>
